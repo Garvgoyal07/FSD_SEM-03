@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Town Library</h1>
+    <p>Catalogue of <strong id="count">0</strong> books</p>
+  </header>
+
+  <main>
+    <section class="panel form-panel">
+      <h2 id="formTitle">Add a book</h2>
+      <form id="bookForm" novalidate>
+        <input type="hidden" id="bookId">
+        <label>Title <input id="title" required></label>
+        <label>Author <input id="author" required></label>
+        <div class="row">
+          <label>Year <input id="year" type="number" min="0"></label>
+          <label>Status
+            <select id="status"><option>Available</option><option>Issued</option></select>
+          </label>
+        </div>
+        <label>ISBN <input id="isbn"></label>
+        <p class="error" id="error" role="alert"></p>
+        <div class="actions">
+          <button type="submit" class="btn primary" id="submitBtn">Add book</button>
+          <button type="button" class="btn" id="cancelBtn" hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel list-panel">
+      <input id="search" class="search" type="search" placeholder="Search by title or author">
+      <div id="books" class="books"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
